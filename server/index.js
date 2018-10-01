@@ -113,12 +113,12 @@ app.get('/*', (req, res) => {
 
 
 
-sql.sync({ force: true })
-.then(function() {
-	TEST_DATA.forEach(function(file) {
-		return Video.create(file)
-	})
-})
+sql.sync()
+// .then(function() {
+// 	TEST_DATA.forEach(function(file) {
+// 		return Video.create(file)
+// 	})
+// })
 .then(function() {
 	console.log("Database synced");
 	app.listen(port, function() {
