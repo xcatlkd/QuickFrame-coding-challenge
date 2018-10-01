@@ -63,7 +63,12 @@ app.get('/videos/:page', (req, res) => {
 });
 
 app.get('/videos/:id', (req, res) => {
-
+	Video.findOne({ where: {
+		id: req.params.id
+	}})
+	.then((video) => {
+		res.json(video);
+	})
 });
 
 app.get('/videos/:ratio', (req, res) => {
@@ -76,7 +81,7 @@ app.get('/*', (req, res) => {
 
 
 
-sql.sync({ force: true }).then(function() {
+sql.sync().then(function() {
 	console.log("Database synced");
 	app.listen(port, function() {
 		console.log(`Server running on port ${port}`);

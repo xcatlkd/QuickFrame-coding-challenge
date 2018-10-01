@@ -1,21 +1,5 @@
 [
 	{
-		"title": "Chelsea v. Liverpool I PREMIER LEAGUE MATCH HIGHLIGHTS I 9/29/18 I NBC Sports",
-		"description": "Watch the highlights from an exciting match between Chelsea and Liverpool. #NBCSports #Chelsea #Liverpool",
-		"author": "NBC Sports",
-		"date": "",
-		"duration": "",
-		"source": "https://www.youtube.com/watch?v=sTq4GTpX-hs"
-	},
-	{
-		"title": "Tabs versus Spaces",
-		"description": "Silicon Valley - S03E06",
-		"author": "freakpants",
-		"date": "2016-05-01",
-		"duration": "170000",
-		"source": "https://www.youtube.com/watch?v=SsoOG6ZeyUI"
-	},
-	{
 		"title": "Sample320",
 		"description": "This is a sample video",
 		"author": "",
@@ -54,5 +38,21 @@
 		"date": "2006-11-28",
 		"duration": "5000",
 		"source": "../assets/small.webm"		
+	},
+	{
+		"title": "Chelsea v. Liverpool I PREMIER LEAGUE MATCH HIGHLIGHTS I 9/29/18 I NBC Sports",
+		"description": "Watch the highlights from an exciting match between Chelsea and Liverpool. #NBCSports #Chelsea #Liverpool",
+		"author": "NBC Sports",
+		"date": "",
+		"duration": "",
+		"source": "https://www.youtube.com/watch?v=sTq4GTpX-hs"
+	},
+	{
+		"title": "Tabs versus Spaces",
+		"description": "Silicon Valley - S03E06",
+		"author": "freakpants",
+		"date": "2016-05-01",
+		"duration": "170000",
+		"source": "https://www.youtube.com/watch?v=SsoOG6ZeyUI"
 	}
 ]
