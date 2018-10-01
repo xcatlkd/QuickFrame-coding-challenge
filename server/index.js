@@ -33,6 +33,14 @@ app.use(bodyParser.urlencoded({
 	extended: true
 }))
 
+function userAuth (req, res, next) {
+	console.log("UserAuth, req.session: ", req.session);
+	if (req.session.userId) {
+		next();
+	} else {
+		res.json({ "error": "You need to be logged in to view that resource." })
+	}
+}
 
 // Routing
 
@@ -51,7 +59,8 @@ app.post('/signup', (req, res) => {
 			User.signup(req)
 			.then((user) => {
 				req.session.userId = user.get("uuid")+user.get("username");
-				res.json(user.dataValues)
+				res.json(user.dataValues, req.session.userId);
+				console.log("Session: ", req.session);
 			})
 		}
 	})
@@ -60,7 +69,7 @@ app.post('/signup', (req, res) => {
 	})
 });
 
-app.get('/videos', (req, res) => {
+app.get('/videos', userAuth, (req, res) => {
 	Video.findAll()
 	.then((data) => {
 		if (data) {
