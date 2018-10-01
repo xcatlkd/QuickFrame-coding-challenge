@@ -14,6 +14,7 @@ rules.push({
 		loader: "babel-loader",
 		options: {
 			compact: false,
+			presets: ["@babel/presets-env"]
 		},
 	},
 });

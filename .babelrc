@@ -1,5 +1,5 @@
 {
-	"presets": ["env"],
+	"presets": ["latest", "stage-0", "env"],
 	"env": {
     "development": {
       
