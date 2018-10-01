@@ -18,7 +18,7 @@ const SessionStore = connectSessionSerialize(session.Store);
 
 dotenv.config();
 const port = process.env.PORT || 8080;
-const cookieSecret = process.env.COOKIE_SECRET || secret;
+const cookieSecret = process.env.COOKIE_SECRET || 'secret';
 
 const app = express();
 
