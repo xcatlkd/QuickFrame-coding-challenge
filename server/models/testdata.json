@@ -1,0 +1,58 @@
+[
+	{
+		"title": "Chelsea v. Liverpool I PREMIER LEAGUE MATCH HIGHLIGHTS I 9/29/18 I NBC Sports",
+		"description": "Watch the highlights from an exciting match between Chelsea and Liverpool. #NBCSports #Chelsea #Liverpool",
+		"author": "NBC Sports",
+		"date": "",
+		"duration": "",
+		"source": "https://www.youtube.com/watch?v=sTq4GTpX-hs"
+	},
+	{
+		"title": "Tabs versus Spaces",
+		"description": "Silicon Valley - S03E06",
+		"author": "freakpants",
+		"date": "2016-05-01",
+		"duration": "170000",
+		"source": "https://www.youtube.com/watch?v=SsoOG6ZeyUI"
+	},
+	{
+		"title": "Sample320",
+		"description": "This is a sample video",
+		"author": "",
+		"date": "2016-07-19",
+		"duration": "5000",
+		"source": "../assets/Sample320.mp4"
+	},
+	{
+		"title": "Wildlife video",
+		"description": "A collection of short wildlife videos.",
+		"author": "Nature",
+		"date": "2011-02-16",
+		"duration": "20000",
+		"source": "../assets/Wildlife.ogv"
+	},
+	{
+		"title": "Night",
+		"description": "A sample video of earth from space.",
+		"author": "NASA",
+		"date": "2017-08-08",
+		"duration": "30000",
+		"source": "../assets/file_example_MP4_480_1_5MG.mp4"
+	},
+	{
+		"title": "Legos!",
+		"description": "A quick lego demo.",
+		"author": "Derrick",
+		"date": "2006-11-28",
+		"duration": "5000",
+		"source": "../assets/small.mp4"
+	},
+	{
+		"title": "Legos!",
+		"description": "A quick lego demo.",
+		"author": "Derrick",
+		"date": "2006-11-28",
+		"duration": "5000",
+		"source": "../assets/small.webm"		
+	}
+]

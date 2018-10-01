@@ -7,6 +7,9 @@ import bodyParser from 'body-parser';
 
 import sql from "./util/sql";
 
+// Import Database models
+import User from "./models/user";
+import Video from "./models/video";
 
 // Configuration
 const SessionStore = connectSessionSerialize(session.Store);
@@ -24,11 +27,9 @@ app.use(session({
 	resave: false,
 }));
 app.use(bodyParser.json());
-
-
-// Import Database models
-import User from "./models/user";
-import Video from "./models/video";
+app.use(bodyParser.urlencoded({
+	extended: true
+}))
 
 
 // Routing
@@ -38,8 +39,6 @@ app.get('/', (req, res) => {
 })
 
 app.post('/signup', (req, res) => {
-	console.log(req.body.username);
-	res.json({ "params: ": req.body.username, "authMessage": "Request received." });
 	User.findOne({ where: {
 		username: req.body.username
 	}})
@@ -49,7 +48,7 @@ app.post('/signup', (req, res) => {
 		} else {
 			User.signup(req)
 			.then((user) => {
-				req.session.userId = User.get("id");
+				req.session.userId = user.get("uuid")+user.get("username");
 				res.json(user.dataValues)
 			})
 		}
@@ -60,7 +59,7 @@ app.post('/signup', (req, res) => {
 });
 
 app.get('/videos/:page', (req, res) => {
-	res.json({ "message": "This route is functional.", "page: ": req.body.page });
+	res.json({ "message": "This route is functional." });
 });
 
 app.get('/videos/:id', (req, res) => {
@@ -77,7 +76,7 @@ app.get('/*', (req, res) => {
 
 
 
-sql.sync().then(function() {
+sql.sync({ force: true }).then(function() {
 	console.log("Database synced");
 	app.listen(port, function() {
 		console.log(`Server running on port ${port}`);

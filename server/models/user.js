@@ -3,10 +3,10 @@ import Sequelize from 'sequelize';
 import bcrypt from 'bcrypt';
 
 const User = sql.define('user', {
-	id: {
-		type: Sequelize.INTEGER,
-		primaryKey: true,
-		autoIncrement: true,
+	uuid: {
+		type: Sequelize.UUID,
+		defaultValue: Sequelize.UUIDV1,
+		primaryKey: true
 	},
 	username: {
 		type: Sequelize.STRING,
@@ -36,7 +36,7 @@ function hashUserPassword(user) {
 	}
 };
 
-function signup(user) {
+User.signup = function(req) {
 	return User.create({
 		username: req.body.username,
 		password: req.body.password,
@@ -50,7 +50,7 @@ User.prototype.comparePassword = function(password) {
 	return bcrypt.compare(password, this.get("password"));
 }
 
-function login(user) {
+User.login = function(req) {
 
 }
 
