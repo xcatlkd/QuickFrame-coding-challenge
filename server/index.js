@@ -11,6 +11,8 @@ import sql from "./util/sql";
 import User from "./models/user";
 import Video from "./models/video";
 
+import TEST_DATA from "./models/testdata.json";
+
 // Configuration
 const SessionStore = connectSessionSerialize(session.Store);
 
@@ -58,8 +60,38 @@ app.post('/signup', (req, res) => {
 	})
 });
 
+app.get('/videos', (req, res) => {
+	Video.findAll()
+	.then((data) => {
+		if (data) {
+			res.json(data);
+		} else {
+			res.json({ "message": "Hmmm, seems to be empty." });
+		}
+	})
+});
+
 app.get('/videos/:page', (req, res) => {
-	res.json({ "message": "This route is functional." });
+	let limit = 5;
+	let offset = 0;
+	Video.findAndCountAll()
+	.then((data) => {
+		let page = req.params.page || 0;
+		let pages = Math.ceil(data.count / limit);
+		offset = page > 0 ? limit * ( page - 1 ) : 0;
+		Video.findAll({
+			attriubutes: ["id", "title", "description", "author", "date", "duration", "source"],
+			limit: limit,
+			offset: offset,
+			$sort: { id: 1 }
+		})
+		.then((videos) => {
+			res.status(200).json({ "videos": videos, "count": data.count, "pages": pages })
+		})
+	})
+	.catch((error) => {
+		console.error(error);
+	})
 });
 
 app.get('/videos/:id', (req, res) => {
@@ -81,7 +113,13 @@ app.get('/*', (req, res) => {
 
 
 
-sql.sync().then(function() {
+sql.sync({ force: true })
+.then(function() {
+	TEST_DATA.forEach(function(file) {
+		return Video.create(file)
+	})
+})
+.then(function() {
 	console.log("Database synced");
 	app.listen(port, function() {
 		console.log(`Server running on port ${port}`);

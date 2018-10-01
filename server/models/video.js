@@ -25,7 +25,7 @@ const Video = sql.define('video', {
 		type: Sequelize.STRING,
 	},
 	date: {
-		type: Sequelize.DATE,
+		type: Sequelize.STRING,
 	},
 	duration: {
 		type: Sequelize.INTEGER,
@@ -33,11 +33,12 @@ const Video = sql.define('video', {
 	source: {
 		type: Sequelize.STRING,
 	}
-}, {
-	hooks: {
-		beforeCreate: getMetaData,
-		beforeUpdate: getMetaData
-	}
+
+// }, {
+// 	hooks: {
+// 		beforeCreate: getMetaData,
+// 		beforeUpdate: getMetaData
+// 	}
 });
 
 
